@@ -1,20 +1,5 @@
 require "test/unit"
-
-# require "stack"
-class Stack
-  def initialize
-    @items = []
-  end
-  def push(item)
-    @items << item
-  end
-  def pop
-    @items.delete_at(-1)
-  end
-  def total_items
-    @items.length
-  end
-end
+require_relative "stack"
 
 class StackTests < Test::Unit::TestCase
   def test_math
@@ -44,5 +29,9 @@ class StackTests < Test::Unit::TestCase
     assert_equal(1, stack.total_items)
     assert_equal("hello", stack.pop)
     assert_equal(0, stack.total_items)
+  end
+  def test_should_return_nil_when_there_is_nothing_on_the_stack
+    stack=Stack.new
+    assert_equal(nil, stack.pop)
   end
 end
