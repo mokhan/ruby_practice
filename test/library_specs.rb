@@ -1,7 +1,7 @@
 require "book"
 require "publisher"
 require "library"
-require "find_all_books_by_author"
+require "specifications/find_all_books_by_author"
 
 class TestLibrary < Test::Unit::TestCase
   def setup
