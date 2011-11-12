@@ -21,6 +21,24 @@ class TestBook < Test::Unit::TestCase
   end
 end
 
+describe Book do 
+  describe "when testing equality" do 
+    def setup
+      @publisher = Publisher.new("Pear press");
+      @book = Book.new("Brain Rules for Baby", "John Medina", @publisher, 2010)
+    end
+    it "should be equal when it's the same instance" do 
+      assert_equal(@book, @book)
+    end
+    it "should be equal when they are the same book" do 
+      assert_equal(@book, Book.new("Brain Rules for Baby", "John Medina", @publisher, 2010))
+    end
+    it "should not be equal when they are different books" do 
+      refute_equal(@book, Book.new("Brain Rules for Baby", "some other guy", @publisher, 2009))
+    end
+  end
+end
+
 class Game
   attr_reader :title;
   def initialize(title, author, publisher, year)
