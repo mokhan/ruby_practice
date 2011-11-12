@@ -6,6 +6,6 @@ class Library
     @books << book
   end
   def contains(title)
-    @books.find { |book| book.title == title } != nil
+    @books.find { |book| book.is_titled?(title) } != nil
   end
 end
