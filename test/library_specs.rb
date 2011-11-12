@@ -1,4 +1,5 @@
 require "book"
+require "publisher"
 require "library"
 
 class TestLibrary < Test::Unit::TestCase
