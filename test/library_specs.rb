@@ -1,6 +1,7 @@
 require "book"
 require "publisher"
 require "library"
+require "find_all_books_by_author"
 
 class TestLibrary < Test::Unit::TestCase
   def setup
@@ -23,13 +24,5 @@ class TestLibrary < Test::Unit::TestCase
     author = "dave thomas"
     matches = @library.find_all_matching FindAllBooksByAuthor.new(author)
     assert_includes(matches, @pickaxe)
-  end
-end
-class FindAllBooksByAuthor
-  def initialize(author)
-    @author = author
-  end
-  def is_satisfied_by(book)
-    book.author == @author
   end
 end
