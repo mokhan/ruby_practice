@@ -1,5 +1,5 @@
 require "test/unit"
-require_relative "Book"
+require "Book"
 
 class TestBook < Test::Unit::TestCase
   def test_should_be_equal

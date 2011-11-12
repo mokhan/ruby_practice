@@ -1,5 +1,5 @@
 require "test/unit"
-require_relative "stack"
+require "stack"
 
 class StackTests < Test::Unit::TestCase
   def test_math

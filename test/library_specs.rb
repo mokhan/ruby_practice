@@ -1,5 +1,5 @@
 require "test/unit"
-require_relative "book"
+require "book"
 
 # require "library"
 class Library
