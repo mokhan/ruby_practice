@@ -1,15 +1,5 @@
 require "test/unit"
-
-# require "Book"c
-class Book
-  attr_reader :title
-  def initialize(title)
-    @title=title
-  end
-  def ==(other)
-    other.kind_of?( Book ) && @title == other.title
-  end
-end
+require_relative "Book"
 
 class TestBook < Test::Unit::TestCase
   def test_should_be_equal
