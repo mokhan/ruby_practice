@@ -34,3 +34,17 @@ class StackTests < Test::Unit::TestCase
     assert_equal(nil, stack.pop)
   end
 end
+
+describe Stack do 
+  before do 
+    @stack = Stack.new
+  end
+  describe "when there are no items on the stack" do 
+    it "should_be_able_to_push_items_onto_the_stack" do
+      @stack.push "hello"
+      assert_equal(1, @stack.total_items)
+      @stack.push "yo"
+      assert_equal(2, @stack.total_items)
+    end
+  end
+end
