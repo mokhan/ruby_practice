@@ -1,4 +1,3 @@
-require "test/unit"
 require "stack"
 
 class StackTests < Test::Unit::TestCase

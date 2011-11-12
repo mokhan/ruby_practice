@@ -1,4 +1,3 @@
-require "test/unit"
 require "book"
 
 # require "library"

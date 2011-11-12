@@ -1,4 +1,3 @@
-require "test/unit"
 require "Book"
 
 class TestBook < Test::Unit::TestCase
