@@ -20,6 +20,16 @@ class TestLibrary < Test::Unit::TestCase
     assert_equal(false, @library.contains("little red riding hood"))
   end
   def test_should_be_able_to_find_all_books_by_an_author
-    
+    author = "dave thomas"
+    matches = @library.find_all_matching FindAllBooksByAuthor.new(author)
+    assert_includes(matches, @pickaxe)
+  end
+end
+class FindAllBooksByAuthor
+  def initialize(author)
+    @author = author
+  end
+  def is_satisfied_by(book)
+    book.author == @author
   end
 end
