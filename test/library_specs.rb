@@ -1,22 +1,5 @@
 require "book"
-
-# require "library"
-class Library
-  def initialize
-    @books = []
-  end
-  def add(book)
-    @books << book
-  end
-  def contains(title)
-    # puts @books.public_methods
-    found = @books.find do |book| 
-      book.title == title
-    end
-    found != nil
-    # @books.any?
-  end
-end
+require "library"
 
 class TestLibrary < Test::Unit::TestCase
   def setup
