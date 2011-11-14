@@ -25,4 +25,19 @@ class TestLibrary < Test::Unit::TestCase
     matches = @library.find_all_matching FindAllBooksByAuthor.new(author)
     assert_includes(matches, @pickaxe)
   end
+  def test_should_be_able_to_use_mocks
+    mock = MiniTest::Mock.new
+    mock.expect(:is_satisfied_by, true, [@pickaxe])
+    # mock.expect(:is_satisfied_by, false, [@agile_web_development_with_rails])
+
+    matches = @library.find_all_matching(mock)
+    dump(matches)
+    assert_includes(matches, @pickaxe)
+    # refute_includes(matches, @agile_web_development_with_rails)
+  end
+  def dump(matches)
+    matches.each do |item|
+      puts "#{item.title}"
+    end
+  end
 end
