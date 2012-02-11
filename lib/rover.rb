@@ -11,6 +11,9 @@ class Rover
   def turn_left
     @heading = @heading.turn_left
   end
+  def move_forward(terrain)
+    terrain.move_to(0,0)
+  end
 end
 
 class North

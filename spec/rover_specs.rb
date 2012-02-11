@@ -21,6 +21,15 @@ describe Rover do
         @sut.heading.must_equal :west
       end
     end
+    describe "when driving forward" do
+      before do
+        @terrain = fake
+        @sut.move_forward(@terrain)
+      end
+      it "should increment the y coordinate on the terrain" do
+        @terrain.received(:move_to).called_with(0,1).wont_match nil
+      end
+    end
   end
 
   describe "when facing south" do
