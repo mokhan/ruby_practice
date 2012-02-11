@@ -59,15 +59,8 @@ class South
 end
 
 class Direction
+  @@directions = {:north => North.new, :east => East.new, :west => West.new, :south => South.new}
   def self.find(heading)
-    if(heading == :north)
-      return North.new
-    elsif heading == :east
-      return East.new
-    elsif heading == :south
-      return South.new
-    elsif heading == :west
-      return West.new
-    end
+    @@directions[heading]
   end
 end
