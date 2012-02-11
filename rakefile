@@ -1,3 +1,7 @@
 task :test do
   sh "ruby -I lib:test test/ts_all.rb"
 end
+
+task :default => :test do
+
+end
