@@ -1,8 +1,8 @@
 class Rover
-  attr_accessor :heading
+  attr_reader :heading
 
-  def initialize
-
+  def initialize(heading)
+    @heading = heading
   end
   def turn_right
     if(@heading == :north)

@@ -1,13 +1,13 @@
 require 'rover'
 
 describe Rover do
-  before do
-    @sut = Rover.new
+  def create_sut(heading)
+    Rover.new heading
   end
 
   describe "when facing north" do
     before do
-      @sut.heading= :north
+      @sut = create_sut :north
     end
     describe "when turning right" do
       it "should face east" do
@@ -25,7 +25,7 @@ describe Rover do
 
   describe "when facing south" do
     before do
-      @sut.heading= :south
+      @sut = create_sut :south
     end
     describe "when turning right" do
       it "should face west" do
@@ -43,7 +43,7 @@ describe Rover do
 
   describe "when facing east" do
     before do
-      @sut.heading= :east
+      @sut = create_sut :east
     end
     describe "when turning right" do
       it "should face south" do
@@ -61,7 +61,7 @@ describe Rover do
 
   describe "when facing west" do
     before do
-      @sut.heading= :west
+      @sut = create_sut :west
     end
     describe "when turning right" do
       it "should face north" do
