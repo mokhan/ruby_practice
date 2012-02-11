@@ -1,7 +1,7 @@
-task :test do
+task :spec do
   sh "ruby -I lib:spec spec/ts_all.rb"
 end
 
-task :default => :test do
+task :default => :spec do
 
 end
