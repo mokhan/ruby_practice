@@ -41,4 +41,22 @@ describe Rover do
     end
   end
 
+  describe "when facing east" do
+    before do
+      @sut.heading= :east
+    end
+    describe "when turning right" do
+      it "should face south" do
+        @sut.turn_right
+        @sut.heading.must_equal :south
+      end
+    end
+    describe "when turning left" do
+      it "should face north" do
+        @sut.turn_left
+        @sut.heading.must_equal :north
+      end
+    end
+  end
+
 end
