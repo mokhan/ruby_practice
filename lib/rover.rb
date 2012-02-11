@@ -1,29 +1,73 @@
 class Rover
-  attr_reader :heading
-
   def initialize(heading)
-    @heading = heading
+    @heading = Direction.find(heading)
+  end
+  def heading
+    @heading.direction
   end
   def turn_right
-    if(@heading == :north)
-      @heading = :east
-    elsif @heading == :east
-      @heading = :south
-    elsif @heading == :south
-      @heading = :west
-    elsif @heading == :west
-      @heading = :north
-    end
+    @heading = @heading.turn_right
   end
   def turn_left
-    if(@heading == :north)
-      @heading = :west
-    elsif @heading == :east
-      @heading = :north
-    elsif @heading == :south
-      @heading = :east
-    elsif @heading == :west
-      @heading = :south
+    @heading = @heading.turn_left
+  end
+end
+
+class North
+  def direction
+    :north
+  end
+  def turn_right
+    East.new
+  end
+  def turn_left
+    West.new
+  end
+end
+class East
+  def direction
+    :east
+  end
+  def turn_right
+    South.new
+  end
+  def turn_left
+    North.new
+  end
+end
+class West
+  def direction
+    :west
+  end
+  def turn_right
+    North.new
+  end
+  def turn_left
+    South.new
+  end
+end
+class South
+  def direction
+    :south
+  end
+  def turn_right
+    West.new
+  end
+  def turn_left
+    East.new
+  end
+end
+
+class Direction
+  def self.find(heading)
+    if(heading == :north)
+      return North.new
+    elsif heading == :east
+      return East.new
+    elsif heading == :south
+      return South.new
+    elsif heading == :west
+      return West.new
     end
   end
 end
