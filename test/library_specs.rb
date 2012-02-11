@@ -27,7 +27,7 @@ class TestLibrary < Test::Unit::TestCase
   end
   def test_should_be_able_to_use_mocks
     mock = MiniTest::Mock.new
-    mock.expect(:is_satisfied_by, true, [@pickaxe])
+    mock.expect(:is_satisfied_by?, true, [@pickaxe])
     # mock.expect(:is_satisfied_by, false, [@agile_web_development_with_rails])
 
     matches = @library.find_all_matching(mock)
