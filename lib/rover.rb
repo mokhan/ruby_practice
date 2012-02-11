@@ -5,9 +5,17 @@ class Rover
 
   end
   def turn_right
-    @heading = :east
+    if(@heading == :north)
+      @heading = :east
+    elsif @heading == :south
+      @heading = :west
+    end
   end
   def turn_left
-    @heading = :west
+    if(@heading == :north)
+      @heading = :west
+    elsif @heading == :south
+      @heading = :east
+    end
   end
 end
