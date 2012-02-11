@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    developwithpassion_fakes (0.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  developwithpassion_fakes
