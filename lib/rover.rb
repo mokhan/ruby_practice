@@ -11,6 +11,8 @@ class Rover
       @heading = :south
     elsif @heading == :south
       @heading = :west
+    elsif @heading == :west
+      @heading = :north
     end
   end
   def turn_left
@@ -20,6 +22,8 @@ class Rover
       @heading = :north
     elsif @heading == :south
       @heading = :east
+    elsif @heading == :west
+      @heading = :south
     end
   end
 end
