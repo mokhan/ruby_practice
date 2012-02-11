@@ -2,16 +2,22 @@ require 'rover'
 
 describe Rover do
   before do
-    sut = Rover.new
+    @sut = Rover.new
   end
   describe "when facing north" do
+    before do
+      @sut.heading= :north
+    end
     describe "when turning right" do
       it "should face east" do
-        sut.heading.must_equal :east
+        @sut.turn_right
+        @sut.heading.must_equal :east
       end
-      before do
-        sut.heading :north
-        sut.turn_right
+    end
+    describe "when turning left" do
+      it "should face west" do
+        @sut.turn_left
+        @sut.heading.must_equal :west
       end
     end
   end
