@@ -1,6 +1,8 @@
 class Rover
-  def initialize(heading)
+  attr_reader :location
+  def initialize(heading, coordinates)
     @heading = Direction.find(heading)
+    @location = coordinates
   end
   def heading
     @heading.direction
@@ -12,7 +14,8 @@ class Rover
     @heading = @heading.turn_left
   end
   def move_forward(terrain)
-    terrain.move_to(0,1)
+    @location = @heading.next(@location)
+    #@location = {:x => 0,:y => 1}
   end
 end
 
@@ -25,6 +28,9 @@ class North
   end
   def turn_left
     West.new
+  end
+  def next(current_location)
+    {:x => current_location[:x], :y => current_location[:y]+1 }
   end
 end
 class East
@@ -58,6 +64,9 @@ class South
   end
   def turn_left
     East.new
+  end
+  def next(current_location)
+    {:x => current_location[:x], :y => current_location[:y]-1 }
   end
 end
 

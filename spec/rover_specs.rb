@@ -1,13 +1,13 @@
 require 'rover'
 
 describe Rover do
-  def create_sut(heading)
-    Rover.new heading
+  def create_sut(heading, x = 0, y = 0)
+    Rover.new heading,{ :x =>x,:y => y }
   end
 
   describe "when facing north" do
     before do
-      @sut = create_sut :north
+      @sut = create_sut :north, 0, 0
     end
     describe "when turning right" do
       it "should face east" do
@@ -23,18 +23,17 @@ describe Rover do
     end
     describe "when driving forward" do
       before do
-        @terrain = fake
         @sut.move_forward(@terrain)
       end
       it "should increment the y coordinate on the terrain" do
-        @terrain.received(:move_to).called_with(0,1).wont_equal nil
+        @sut.location.must_equal({:x => 0, :y => 1})
       end
     end
   end
 
   describe "when facing south" do
     before do
-      @sut = create_sut :south
+      @sut = create_sut :south, 0, 3
     end
     describe "when turning right" do
       it "should face west" do
@@ -46,6 +45,14 @@ describe Rover do
       it "should face east" do
         @sut.turn_left
         @sut.heading.must_equal :east
+      end
+    end
+    describe "when driving forward" do
+      before do
+        @sut.move_forward(@terrain)
+      end
+      it "should decrement the y coordinate on the terrain" do
+        @sut.location.must_equal({:x => 0, :y => 2})
       end
     end
   end
