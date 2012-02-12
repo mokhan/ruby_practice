@@ -2,7 +2,8 @@ require 'rover'
 
 describe Rover do
   def create_sut(heading, x = 0, y = 0)
-    Rover.new heading,{ :x =>x,:y => y }
+    directions = {:north => North.new, :east => East.new, :west => West.new, :south => South.new}
+    Rover.new directions[heading],{ :x =>x,:y => y }
   end
 
   describe "when facing north" do

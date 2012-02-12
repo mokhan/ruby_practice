@@ -1,11 +1,11 @@
 class Rover
   attr_reader :location
   def initialize(heading, coordinates)
-    @heading = Direction.find(heading)
+    @heading = heading
     @location = coordinates
   end
   def heading
-    @heading.direction
+    @heading.to_sym
   end
   def turn_right
     @heading = @heading.turn_right
@@ -19,7 +19,7 @@ class Rover
 end
 
 class North
-  def direction
+  def to_sym
     :north
   end
   def turn_right
@@ -33,7 +33,7 @@ class North
   end
 end
 class East
-  def direction
+  def to_sym
     :east
   end
   def turn_right
@@ -47,7 +47,7 @@ class East
   end
 end
 class West
-  def direction
+  def to_sym
     :west
   end
   def turn_right
@@ -61,7 +61,7 @@ class West
   end
 end
 class South
-  def direction
+  def to_sym
     :south
   end
   def turn_right
@@ -72,12 +72,5 @@ class South
   end
   def forward(current_location)
     current_location[:y] = current_location[:y]-1
-  end
-end
-
-class Direction
-  @@directions = {:north => North.new, :east => East.new, :west => West.new, :south => South.new}
-  def self.find(heading)
-    @@directions[heading]
   end
 end
