@@ -12,7 +12,7 @@ class Rover
     @heading = @heading.turn_left
   end
   def move_forward(terrain)
-    terrain.move_to(0,0)
+    terrain.move_to(0,1)
   end
 end
 

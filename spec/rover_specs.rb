@@ -27,7 +27,7 @@ describe Rover do
         @sut.move_forward(@terrain)
       end
       it "should increment the y coordinate on the terrain" do
-        @terrain.received(:move_to).called_with(0,1).wont_match nil
+        @terrain.received(:move_to).called_with(0,1).wont_equal nil
       end
     end
   end
