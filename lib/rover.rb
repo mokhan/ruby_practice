@@ -14,7 +14,7 @@ class Rover
     @heading = @heading.turn_left
   end
   def move_forward(terrain)
-    @heading.forward(@location)
+    @heading.forward(@location, terrain)
   end
 end
 
@@ -25,7 +25,7 @@ class North
   def turn_left
     West.new
   end
-  def forward(current_location)
+  def forward(current_location, terrain)
     current_location[:y] = current_location[:y]+1
   end
 end
@@ -36,7 +36,7 @@ class East
   def turn_left
     North.new
   end
-  def forward(current_location)
+  def forward(current_location, terrain)
     current_location[:x] = current_location[:x]+1
   end
 end
@@ -47,7 +47,7 @@ class West
   def turn_left
     South.new
   end
-  def forward(current_location)
+  def forward(current_location, terrain)
     current_location[:x] = current_location[:x]-1
   end
 end
@@ -58,7 +58,7 @@ class South
   def turn_left
     East.new
   end
-  def forward(current_location)
+  def forward(current_location, terrain)
     current_location[:y] = current_location[:y]-1
   end
 end
