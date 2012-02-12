@@ -1,4 +1,8 @@
 require 'rover'
+require 'north'
+require 'east'
+require 'west'
+require 'south'
 
 describe Rover do
   def create_sut(heading, x = 0, y = 0)
