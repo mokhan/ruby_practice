@@ -5,7 +5,7 @@ class Rover
     @location = coordinates
   end
   def heading
-    @heading.to_sym
+    @heading.class.name.downcase.to_sym
   end
   def turn_right
     @heading = @heading.turn_right
@@ -19,9 +19,6 @@ class Rover
 end
 
 class North
-  def to_sym
-    :north
-  end
   def turn_right
     East.new
   end
@@ -33,9 +30,6 @@ class North
   end
 end
 class East
-  def to_sym
-    :east
-  end
   def turn_right
     South.new
   end
@@ -47,9 +41,6 @@ class East
   end
 end
 class West
-  def to_sym
-    :west
-  end
   def turn_right
     North.new
   end
@@ -61,9 +52,6 @@ class West
   end
 end
 class South
-  def to_sym
-    :south
-  end
   def turn_right
     West.new
   end
