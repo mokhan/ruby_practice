@@ -42,6 +42,9 @@ class East
   def turn_left
     North.new
   end
+  def forward(current_location)
+    current_location[:x] = current_location[:x]+1
+  end
 end
 class West
   def direction
@@ -52,6 +55,9 @@ class West
   end
   def turn_left
     South.new
+  end
+  def forward(current_location)
+    current_location[:x] = current_location[:x]-1
   end
 end
 class South

@@ -73,11 +73,19 @@ describe Rover do
         @sut.heading.must_equal :north
       end
     end
+    describe "when driving forward" do
+      before do
+        @sut.move_forward(@terrain)
+      end
+      it "should increment the x coordinate on the terrain" do
+        @sut.location.must_equal({:x => 1, :y => 0})
+      end
+    end
   end
 
   describe "when facing west" do
     before do
-      @sut = create_sut :west
+      @sut = create_sut :west, 1, 0
     end
     describe "when turning right" do
       it "should face north" do
@@ -89,6 +97,14 @@ describe Rover do
       it "should face south" do
         @sut.turn_left
         @sut.heading.must_equal :south
+      end
+    end
+    describe "when driving forward" do
+      before do
+        @sut.move_forward(@terrain)
+      end
+      it "should decrement the x coordinate on the terrain" do
+        @sut.location.must_equal({:x => 0, :y => 0})
       end
     end
   end
