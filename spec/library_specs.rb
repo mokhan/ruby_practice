@@ -31,7 +31,7 @@ class TestLibrary < Test::Unit::TestCase
     # mock.expect(:is_satisfied_by, false, [@agile_web_development_with_rails])
 
     matches = @library.find_all_matching(mock)
-    dump(matches)
+    #dump(matches)
     assert_includes(matches, @pickaxe)
     # refute_includes(matches, @agile_web_development_with_rails)
   end
