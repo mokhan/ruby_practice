@@ -55,6 +55,7 @@ describe Rover do
     end
     describe "when driving forward" do
       before do
+        @terrain = fake
         @sut.move_forward(@terrain)
       end
       it "should decrement the y coordinate on the terrain" do
