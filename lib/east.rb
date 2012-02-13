@@ -5,7 +5,9 @@ class East
   def turn_left
     North.new
   end
-  def forward(current_location, terrain)
-    current_location[:x] = current_location[:x]+1
+  def forward(location, terrain)
+    unless terrain.is_out_of_bounds( {:x => location[:x]+1, :y => location[:y]})
+      location[:x] = location[:x]+1
+    end
   end
 end
