@@ -14,8 +14,7 @@ class Rover
     @heading = @heading.turn_left
   end
   def move_forward(terrain)
-#    terrain.move_forward(@heading, @location)
-    @heading.forward(@location, terrain)
+    terrain.move_forward(@heading, @location)
   end
 end
 
