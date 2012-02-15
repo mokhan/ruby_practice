@@ -5,3 +5,7 @@ end
 task :default => :spec do
 
 end
+
+task :run do
+  sh "ruby -I bin:lib bin/app.rb hello"
+end
