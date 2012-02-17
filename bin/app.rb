@@ -3,3 +3,5 @@
 require "rover"
 
 puts ARGV
+
+console = Console.new(STDIN, STDOUT)
