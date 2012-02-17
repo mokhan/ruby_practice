@@ -1,6 +1,6 @@
 require "command_processor"
 
-describe CommandProcessorSpecs do
+describe CommandProcessor do
   before(:each) do
     @sut = CommandProcessor.new
   end
