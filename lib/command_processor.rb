@@ -6,6 +6,8 @@ class CommandProcessor
     @commands << command
   end
   def run
-    @commands.each { |e| e.run  }
+    while @commands.length > 0 do
+      @commands.shift.run
+    end
   end
 end

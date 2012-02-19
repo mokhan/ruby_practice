@@ -16,5 +16,14 @@ describe CommandProcessor do
       @sut.add(@second_command)
       @sut.run
     end
+    describe "when run again" do
+      it "should have nothing to run" do
+        @first_command.received(:run).times?(1).must_equal true
+        @second_command.received(:run).times?(1).must_equal true
+      end
+      before(:each) do
+        @sut.run
+      end
+    end
   end
 end
