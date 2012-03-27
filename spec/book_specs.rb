@@ -1,4 +1,4 @@
-require "Book"
+require "book"
 
 class TestBook < Test::Unit::TestCase
   def setup
